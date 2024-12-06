@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Todo</title>
+    <link rel=" stylesheet" href="static/todo.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Todo</h1>
+    </header>
+    <main>
+      <ul class="todo-list">
+        <!-- {{range}} and {{end}} loop -->
+        {{range .}}
+        <li class="todo-item">
+          <div class="todo-item-left">
+            <input type="checkbox" />
+            <label>{{.}}</label>
+          </div>
+        </li>
+        {{end}}
+      </ul>
+    </main>
+  </body>
+</html>
