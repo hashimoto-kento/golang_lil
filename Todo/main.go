@@ -10,8 +10,19 @@ var todoList []string
 
 // template engine, blank identifier to ignore error
 func handleTodo(w http.ResponseWriter, r *http.Request) {
-	t, _ := template.ParseFiles("templates/todo.html")
-	t.Execute(w, todoList)
+	t, err := template.ParseFiles("templates/todo.html")
+	if err != nil {
+		log.Printf("Template parsing error: %v", err)
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		return
+}
+
+err = t.Execute(w, todoList)
+if err != nil {
+	log.Printf("Template executing error: %v", err)
+	http.Error(w, "Internal server error", http.StatusInternalServerError)
+	return
+}
 }
 
 func main() {
