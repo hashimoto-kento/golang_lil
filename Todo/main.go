@@ -2,6 +2,8 @@ package main
 
 import (
 	// "html/template"
+	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -36,6 +38,10 @@ func main() {
 
 	http.HandleFunc("/add", handleAdd)
 
-	http.ListenAndServe(":8080", nil)
-
+	port := getPortNumber()
+	fmt.Printf("listening port : %d\n", port)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatal("failed to start : ", err)
+	}
 }
