@@ -45,5 +45,4 @@
 // 	if todo != "" {
 // 		todoLists[sessionId] = append(todos, todo)
 // 	}
-// 	http.Redirect(w, r, "/todo", 303)
-// }
+// 	http.Redirect(w, r, "/todo", 303)}

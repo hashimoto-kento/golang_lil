@@ -3,9 +3,8 @@ package main
 import (
 	"time"
 	_ "time/tzdata"
-
 	"golang.org/x/crypto/bcrypt"
-)
+	)
 
 // Account expire limit in minutes
 const UserAccountLimitInMinute = 60
